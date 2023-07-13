@@ -1,0 +1,9 @@
+{
+    "appId": "application-0-csgtt",
+    "appUrl": "https://realm.mongodb.com/groups/5fb401b56f8323671cbe0831/apps/64b03c03c9e1876f97879d45",
+    "baseUrl": "https://realm.mongodb.com",
+    "clientApiBaseUrl": "https://us-east-1.aws.realm.mongodb.com",
+    "dataApiBaseUrl": "https://us-east-1.aws.data.mongodb-api.com",
+    "dataExplorerLink": "https://cloud.mongodb.com/links/5fb401b56f8323671cbe0831/explorer/Cluster0/database/collection/find",
+    "dataSourceName": "mongodb-atlas"
+}
