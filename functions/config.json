@@ -3,5 +3,10 @@
         "name": "resetFunc",
         "private": false,
         "can_evaluate": {}
+    },
+    {
+        "name": "save_doc",
+        "private": false,
+        "disable_arg_logs": true
     }
 ]
