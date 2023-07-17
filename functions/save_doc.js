@@ -15,17 +15,12 @@ exports = async function(arg){
   
   var findResult;
   try {
-    collections = collection.find({})
-    console.log("collection", collections);
-    // Get a value from the context (see "Values" tab)
-    // Update this to reflect your value's name.
-    var valueName = "value_name";
-    var value = context.values.get(valueName);
-
-    // Execute a FindOne in MongoDB 
-    findResult = await collection.findOne(
-      { owner_id: context.user.id, "fieldName": value, "argField": arg},
-    );
+    collections = await collection.find({});
+    const newItem = {
+      "owner_id": "64b05d08b204c32db9a1ee9e",
+      "summary": "ver partido"
+    }
+    collection.insertOne(newItem)
 
   } catch(err) {
     console.log("Error occurred while executing findOne:", err.message);
@@ -36,5 +31,5 @@ exports = async function(arg){
   // To call other named functions:
   // var result = context.functions.execute("function_name", arg1, arg2);
 
-  return { result: findResult };
+  return collections;
 };
