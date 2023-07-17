@@ -1,17 +1,4 @@
 exports = async function(arg){
-  const Realm = require("realm");
-  const appConfig = {
-      id: "application-0-csgtt",
-      timeout: 1000,
-      app: {
-          name: "Application-0",
-          version: "1"
-      }
-    };
-  let app = new Realm.App(appConfig);
-  console.log("app", app);
-
-
   // This default function will get a value and find a document in MongoDB
   // To see plenty more examples of what you can do with functions see: 
   // https://www.mongodb.com/docs/atlas/app-services/functions/
@@ -25,10 +12,11 @@ exports = async function(arg){
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
-  console.log("collection", collection);
-
+  
   var findResult;
   try {
+    collections = collection.find({})
+    console.log("collection", collections);
     // Get a value from the context (see "Values" tab)
     // Update this to reflect your value's name.
     var valueName = "value_name";
