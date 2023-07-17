@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "__v": {
+            "bsonType": "int"
+        },
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "apellidos": {
+            "bsonType": "string"
+        },
+        "celular": {
+            "bsonType": "string"
+        },
+        "created_at": {
+            "bsonType": "date"
+        },
+        "email": {
+            "bsonType": "string"
+        },
+        "nombres": {
+            "bsonType": "string"
+        },
+        "online": {
+            "bsonType": "bool"
+        },
+        "password": {
+            "bsonType": "string"
+        }
+    },
+    "title": "usuario"
+}
