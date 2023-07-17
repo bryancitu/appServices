@@ -44,6 +44,13 @@ export const getTodoId = (todo) => {
   return todo._id
 };
 
+export const getItemId = (todo) => {
+  if (todo._id instanceof Realm.BSON.ObjectId) {
+    return todo._id.toHexString();
+  }
+  return todo._id
+};
+
 export const isSameTodo = (todo1, todo2) =>
   getTodoId(todo1) === getTodoId(todo2);
 

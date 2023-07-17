@@ -6,6 +6,7 @@ import { ThemeProvider } from "./Theme";
 import { AppName } from "./AppName";
 import atlasConfig from "../atlasConfig.json";
 import "./App.css";
+import { FileItemsPage } from "./FileItemsPage";
 const { appId } = atlasConfig;
 
 export default function ProvidedApp() {
@@ -38,7 +39,8 @@ function App() {
           ) : null}
         </Toolbar>
       </AppBar>
-      {currentUser ? <TodoItemsPage /> : <WelcomePage />}
+      {/* {currentUser ? <TodoItemsPage /> : <WelcomePage />} */}
+      {currentUser ? <FileItemsPage /> : <WelcomePage />}
     </div>
   );
 }
