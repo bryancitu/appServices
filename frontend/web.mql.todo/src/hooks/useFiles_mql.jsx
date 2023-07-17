@@ -22,8 +22,8 @@ export function useFiles() {
   // Get a client object for the todo item collection
   const fileItemCollection = useCollection({
     cluster: dataSourceName,
-    db: "delivery",
-    collection: "usuarios",
+    db: "file",
+    collection: "docs",
   });
 
   // Fetch all todos on load and whenever our collection changes (e.g. if the current user changes)
