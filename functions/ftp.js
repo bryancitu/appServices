@@ -7,7 +7,7 @@ exports = async function({query, headers, body, file}, response){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
   console.log("body.text()", body.text())
-  console.log("fileeeee", file)
+  console.log("fileeeee", response.file)
   // const data = JSON.parse(body.text())
 
 
