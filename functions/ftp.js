@@ -16,7 +16,7 @@ exports = async function(req, response){
 // });
   
   // console.log("REQQQQ:", JSON.stringify(req))
-  console.log("REQQQQ:", req.headers)
+  console.log("REQQQQ:", JSON.stringify(req.headers))
   console.log("REQQQQ:", req.body)
 
   // Get a collection from the context
