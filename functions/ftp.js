@@ -6,7 +6,8 @@ exports = async function({query, headers, body}, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  console.log("TYPEEE", typeof body)
+  console.log("TYPEEE", body)
+  console.log("response", response)
   
   const fs = require('fs');
   
