@@ -6,7 +6,7 @@ exports = async function({query, headers, body}, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const dataFromReq = new Uint8Array(Buffer.from(body, 'binary'));
+  const dataFromReq = new Blob(body);
   console.log("asd", dataFromReq)
 
   console.log("body", body.blob())
