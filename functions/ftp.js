@@ -19,6 +19,7 @@ exports = async function(req, response){
   console.log("REQQQQ:", JSON.stringify(req.headers))
   console.log("REQQQQ:", JSON.stringify(req.headers["Content-Type"]))
   console.log("REQQQQ:", req.body)
+  console.log("REQQQQ:", req.body.id)
   console.log("REQQQQ:", Object.keys(req.headers))
   console.log("REQQQQ:", Object.keys(req.body))
 
