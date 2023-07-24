@@ -21,6 +21,7 @@ exports = async function({query, headers, body}, response){
     //   if (err) throw err;
     //   client.end();
     // });
+    client.end();
   
   });
   
