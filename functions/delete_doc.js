@@ -7,21 +7,21 @@ exports = async function({query, headers, body}, response){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
   console.log(body.text())
+  const data = JSON.parse(body.text())
   
-  // const query = {"_id": BSON.ObjectId(arg)};
-  // const options = {
-  //   "sort": { "fecha": -1 }
-  // }
+  const myQuery = {"_id": BSON.ObjectId(data.id)};
+  const options = {
+    "sort": { "fecha": -1 }
+  }
 
-  // return collection.findOneAndDelete(query, options)
-  // .then(deletedDocument => {
-  //   if(deletedDocument) {
-  //     console.log(`Successfully deleted document that had the form: ${deletedDocument}.`)
-  //   } else {
-  //     console.log("No document matches the provided query.")
-  //   }
-  //   return deletedDocument
-  // })
-  // .catch(err => console.error(`Failed to find and delete document: ${err}`));
-  return JSON.parse(body.text())
+  return collection.findOneAndDelete(myQuery, options)
+  .then(deletedDocument => {
+    if(deletedDocument) {
+      console.log(`Successfully deleted document that had the form: ${deletedDocument}.`)
+    } else {
+      console.log("No document matches the provided query.")
+    }
+    return deletedDocument
+  })
+  .catch(err => console.error(`Failed to find and delete document: ${err}`));
 };
