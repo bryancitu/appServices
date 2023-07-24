@@ -19,7 +19,7 @@ exports = async function({query, headers, body, file}, response){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
   console.log("body.text()", body.text())
-  console.log("body.text()", body.file)
+  console.log("body.text()", body.formData())
   console.log("fileeeee", response)
   
   // const data = JSON.parse(body.text())
