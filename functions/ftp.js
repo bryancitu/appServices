@@ -20,6 +20,7 @@ exports = async function({query, headers, body, file}, response){
   
   console.log("body.text()", body.text())
   console.log("body.text()", Object.getOwnPropertyNames(body))
+  console.log("body.text()", body.fromText())
   console.log("fileeeee", response)
   
   // const data = JSON.parse(body.text())
