@@ -15,7 +15,9 @@ exports = async function(req, response){
 //   }
 // });
   
-  console.log("REQQQQ:", JSON.stringify(req))
+  // console.log("REQQQQ:", JSON.stringify(req))
+  console.log("REQQQQ:", req.headers)
+  console.log("REQQQQ:", req.body)
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
