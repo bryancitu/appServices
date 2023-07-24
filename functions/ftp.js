@@ -39,5 +39,5 @@ exports = async function({query, headers, body}, response){
   
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  return {}
+  return {"bien": "mal"}
 };
