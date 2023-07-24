@@ -13,23 +13,23 @@ exports = async function(arg){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  var findResult;
-  try {
-    collections = await collection.find({});
-    const newItem = {
-      "owner_id": "64b05d08b204c32db9a1ee9e",
-      "summary": "ver partido"
-    }
-    collection.insertOne(newItem)
+  // var findResult;
+  // try {
+  //   collections = await collection.find({});
+  //   const newItem = {
+  //     "owner_id": "64b05d08b204c32db9a1ee9e",
+  //     "summary": "ver partido"
+  //   }
+  //   collection.insertOne(newItem)
 
-  } catch(err) {
-    console.log("Error occurred while executing findOne:", err.message);
+  // } catch(err) {
+  //   console.log("Error occurred while executing findOne:", err.message);
 
-    return { error: err.message };
-  }
+  //   return { error: err.message };
+  // }
 
   // To call other named functions:
   // var result = context.functions.execute("function_name", arg1, arg2);
 
-  return collections;
+  return collection.find({});
 };
