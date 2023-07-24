@@ -6,20 +6,20 @@ exports = async function(arg){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  var findResult;
-  try {
-    collections = await collection.find({});
-    const newItem = {
-      "summary": "ver partido 4",
-      "fecha": new Date()
-    }
-    collection.insertOne(newItem)
+  // var findResult;
+  // try {
+  //   collections = await collection.find({});
+  //   const newItem = {
+  //     "summary": "ver partido 4",
+  //     "fecha": new Date()
+  //   }
+  //   collection.insertOne(newItem)
 
-  } catch(err) {
-    console.log("Error occurred while executing findOne:", err.message);
+  // } catch(err) {
+  //   console.log("Error occurred while executing findOne:", err.message);
 
-    return { error: err.message };
-  }
+  //   return { error: err.message };
+  // }
 
   // To call other named functions:
   // var result = context.functions.execute("function_name", arg1, arg2);
