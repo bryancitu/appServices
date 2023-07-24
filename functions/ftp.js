@@ -3,32 +3,32 @@ exports = async function({query, headers, body}, response){
   const data = JSON.stringify(body)
   console.log("data",data)
   
-  const ftp = require('ftp');
-  const client = new ftp();
+  // const ftp = require('ftp');
+  // const client = new ftp();
 
-  const ftpConfig = {
-    host: 'synho.com',
-    port: 21,
-    user: 'mar12syd',
-    password: 'rvkfnshcjnvy'
-  };
+  // const ftpConfig = {
+  //   host: 'synho.com',
+  //   port: 21,
+  //   user: 'mar12syd',
+  //   password: 'rvkfnshcjnvy'
+  // };
   
-  client.on('ready', () => {
-    console.log('Connected to FTP server.');
+  // client.on('ready', () => {
+  //   console.log('Connected to FTP server.');
   
-    const date = new Date().valueOf()
-    // client.put('index.html', `./home/test/index${date}.html`, function(err) {
-    //   if (err) throw err;
-    //   client.end();
-    // });
+  //   const date = new Date().valueOf()
+  //   // client.put('index.html', `./home/test/index${date}.html`, function(err) {
+  //   //   if (err) throw err;
+  //   //   client.end();
+  //   // });
   
-  });
+  // });
   
-  client.on('error', (err) => {
-    console.error('FTP error:', err);
-  });
+  // client.on('error', (err) => {
+  //   console.error('FTP error:', err);
+  // });
   
-  client.connect(ftpConfig);
+  // client.connect(ftpConfig);
 
   var serviceName = "mongodb-atlas";
   
