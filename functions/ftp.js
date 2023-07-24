@@ -1,8 +1,6 @@
-
-
 exports = async function({query, headers, body}, response){
   
-  const data = JSON.parse(body)
+  const data = JSON.stringify(body)
   console.log("data",data)
   
   const ftp = require('ftp');
@@ -39,5 +37,5 @@ exports = async function({query, headers, body}, response){
   
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  return {"bien": "mal"}
+  return collection.find({})
 };
