@@ -10,7 +10,7 @@ exports = async function(arg){
   try {
     collections = await collection.find({});
     const newItem = {
-      "summary": "ver partido 3",
+      "summary": "ver partido 4",
       "fecha": new Date()
     }
     collection.insertOne(newItem)
