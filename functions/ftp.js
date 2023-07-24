@@ -1,11 +1,11 @@
-const ftp = require('ftp');
-const client = new ftp();
+
 
 exports = async function({query, headers, body}, response){
   
   const data = JSON.parse(body)
   console.log("data",data)
   
+  const ftp = require('ftp');
   const client = new ftp();
 
   const ftpConfig = {
