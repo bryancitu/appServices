@@ -23,5 +23,5 @@ exports = async function({query, headers, body}, response){
   //   return deletedDocument
   // })
   // .catch(err => console.error(`Failed to find and delete document: ${err}`));
-  return body.text()
+  return JSON.stringify(body.text())
 };
