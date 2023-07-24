@@ -8,6 +8,8 @@ exports = async function({query, headers, body}, response){
   
   console.log("TYPEEE", typeof body)
   
+  const fs = require('fs');
+  
   fs.writeFile("./image.png", body, function(err) {
       if (err) throw err;
   });
