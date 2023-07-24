@@ -5,6 +5,12 @@ exports = async function({query, headers, body}, response){
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
+  
+  console.log("TYPEEE", typeof body)
+  
+  fs.writeFile("./image.png", body, function(err) {
+      if (err) throw err;
+  });
 
   console.log("body", body.arrayBuffer())
   const byteArray = new Uint8Array(body);
