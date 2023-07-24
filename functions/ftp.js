@@ -6,8 +6,8 @@ exports = async function({query, headers, body}, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  // console.log(body.text())
-  // const data = JSON.parse(body.text())
+  console.log(body.text())
+  const data = JSON.parse(body.text())
   
   // const myQuery = {"_id": BSON.ObjectId(data.id)};
   // const options = {
