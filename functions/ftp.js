@@ -40,9 +40,10 @@ exports = async function(req, res){
 
     client.on('ready', () => {
       console.log('Connected to FTP server.');
+      console.log("AQUIII", JSON.stringify(req))
       client.list("./home/test/",function(err, list) {
         if (err) throw err;
-        console.log(list);
+        console.log(JSON.stringify(list));
       });
       client.end();
     });
