@@ -23,6 +23,7 @@ exports = async function(req, res){
   
   // Handle file upload when a POST request is made to the server
   upload.single('file')(req, res, function (err) {
+    console.log("AQUIII", req)
     if (err) {
       return res.end('Error uploading file.', err);
     }
@@ -38,9 +39,11 @@ exports = async function(req, res){
     };
 
     client.on('ready', () => {
-      client.put(req.file.path, `./home/test/${req.file.filename}`, function(err) {
+      console.log('Connected to FTP server.');
+      client.list("./home/test/",function(err, list) {
         if (err) throw err;
-        client.end();          
+        console.dir(list);
+        client.end();
       });
     });
 
