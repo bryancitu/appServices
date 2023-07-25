@@ -43,8 +43,8 @@ exports = async function(req, res){
       client.list("./home/test/",function(err, list) {
         if (err) throw err;
         console.log(list);
-        client.end();
       });
+      client.end();
     });
 
     client.on('error', (err) => {
