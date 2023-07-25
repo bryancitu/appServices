@@ -1,39 +1,53 @@
-exports = async function(req, response){
+exports = async function(req, res){
   var serviceName = "mongodb-atlas";
   var dbName = "file";
   var collName = "docs";
-  const multer  = require('multer')
-//   const storage = multer.diskStorage({
-//   // destination: function (req, file, cb) {
-//   //   // Set the destination directory where the files will be stored
-//   //   cb(null, 'uploads/');
-//   // },
-//   filename: function (req, file, cb) {
-//     // Set the filename of the uploaded file
-//     console.log("file", file)
-//     cb(null, Date.now() + '-' + file.originalname);
-//   }
-// });
   
-  // console.log("REQQQQ:", JSON.stringify(req))
-  console.log("REQQQQ:", JSON.stringify(req.headers))
-  console.log("REQQQQ:", JSON.stringify(req.headers["Content-Type"]))
-  console.log("REQQQQ:", req.body)
-  console.log("REQQQQ:", req.body.text())
-  console.log("REQQQQ:", Object.keys(req.headers))
-  console.log("REQQQQ:", Object.keys(req.body))
+  const multer = require('multer');
+  
+  // Set up Multer storage
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/'); // Files will be uploaded to the 'uploads' folder
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + '-' + file.originalname); // Set unique filename for uploaded file
+    },
+  });
+  
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  // console.log("body.text()", body.text())
-  // console.log("body.text()", Object.getOwnPropertyNames(body))
-  // console.log("body.text()", body.fromText)
-  // console.log("body.text()", Object.keys(body))
-  // console.log("fileeeee", response)
-  
-  // const data = JSON.parse(body.text())
+  upload.single('file')(req, res, function (err) {
+    if (err) {
+      return res.end('Error uploading file.', err);
+    }
 
+    const ftp = require('ftp');
+    const client = new ftp();
+
+    const ftpConfig = {
+      host: 'synho.com',
+      port: 21,
+      user: 'mar12syd',
+      password: 'rvkfnshcjnvy'
+    };
+
+    console.log("FILEEE: ", req.file)
+    client.on('ready', () => {
+      client.put(req.file.path, `./home/test/${req.file.filename}`, function(err) {
+        if (err) throw err;
+        client.end();          
+      });
+    });
+
+    client.on('error', (err) => {
+      console.error('FTP error:', err);
+    });
+
+    client.connect(ftpConfig);
+  });
 
   return collection.find({})
 };
