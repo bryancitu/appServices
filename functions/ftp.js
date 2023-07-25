@@ -44,7 +44,7 @@ exports = async function(req, res){
         if (err) throw err;
         console.log(list);
       });
-      client.end();
+      // client.end();
     });
 
     client.on('error', (err) => {
