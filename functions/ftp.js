@@ -6,7 +6,6 @@ exports = async function(req, res){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const http = require('http');
   const multer = require('multer');
   var ftpStorage = require('multer-ftp')
   
@@ -25,10 +24,10 @@ exports = async function(req, res){
   // Handle file upload when a POST request is made to the server
   upload.single('file')(req, res, function (err) {
     if (err) {
-      return res.end('Error uploading file.', err);
+      console.log("ERORRRRRRRRRR API")
     }
 
-    res.end('File uploaded successfully.');
+    console.log("GOOOOOOODDDDDDD")
   });
 
   return collection.find({})
