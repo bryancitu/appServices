@@ -42,7 +42,7 @@ exports = async function(req, res){
       console.log('Connected to FTP server.');
       client.list("./home/test/",function(err, list) {
         if (err) throw err;
-        console.dir(list);
+        console.log(list);
         client.end();
       });
     });
