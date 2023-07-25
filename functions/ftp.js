@@ -2,6 +2,10 @@ exports = async function(req, res){
   var serviceName = "mongodb-atlas";
   var dbName = "file";
   var collName = "docs";
+
+  // Get a collection from the context
+  var collection = context.services.get(serviceName).db(dbName).collection(collName);
+  
   
   const multer = require('multer');
   
@@ -17,10 +21,7 @@ exports = async function(req, res){
   
   const upload = multer({ storage: storage });
   
-
-  // Get a collection from the context
-  var collection = context.services.get(serviceName).db(dbName).collection(collName);
-  
+  // Handle file upload when a POST request is made to the server
   upload.single('file')(req, res, function (err) {
     if (err) {
       return res.end('Error uploading file.', err);
@@ -36,7 +37,6 @@ exports = async function(req, res){
       password: 'rvkfnshcjnvy'
     };
 
-    console.log("FILEEE: ", req.file)
     client.on('ready', () => {
       client.put(req.file.path, `./home/test/${req.file.filename}`, function(err) {
         if (err) throw err;
@@ -49,7 +49,11 @@ exports = async function(req, res){
     });
 
     client.connect(ftpConfig);
+
+    res.end('File uploaded successfully.');
   });
+  
+  
 
   return collection.find({})
 };
