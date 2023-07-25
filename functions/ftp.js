@@ -8,7 +8,7 @@ exports = async function(req, res){
   // Set up Multer storage
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/'); // Files will be uploaded to the 'uploads' folder
+      cb(null, '/'); // Files will be uploaded to the 'uploads' folder
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + '-' + file.originalname); // Set unique filename for uploaded file
