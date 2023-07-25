@@ -15,6 +15,8 @@ exports = async function(req, res){
     },
   });
   
+  const upload = multer({ storage: storage });
+  
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
